@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const ObjectId = mongoose.Schema.Types.ObjectId
+const ObjectId = mongoose.Schema.Types.ObjectId //configuration for a path in Schema
 
 const orderSchema = new mongoose.Schema({
     userId: {

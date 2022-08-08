@@ -324,6 +324,8 @@ exports.updateUser = async (req, res) => {
                 if (!validate.isValidPincode(shipping.pincode)) {
                     return res.status(400).send({ status: false, message: "please enter valid pincode" });
                 }
+            } else {
+                return res.status(400).send({status: false, message: "Shipping address is required"})
             }
 
             if (billing) {
@@ -349,6 +351,8 @@ exports.updateUser = async (req, res) => {
                 if (!validate.isValidPincode(billing.pincode)) {
                     return res.status(400).send({ status: false, message: "please enter valid billing pincode" });
                 }
+            }else {
+                return res.status(400).send({status: false, message: "Billing address is required"})
             }
         }
 
