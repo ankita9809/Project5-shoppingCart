@@ -75,7 +75,7 @@ exports.createUser = async (req, res) => {
             return res.status(400).send({ status: false, message: "Address is required" });
 
         data.address = JSON.parse(data.address);
-        console.log(typeof data.address)
+        
 
         let { shipping, billing } = data.address;
         //validating the address 
@@ -300,6 +300,8 @@ exports.updateUser = async (req, res) => {
             }
             let { shipping, billing } = data.address
 
+            
+
             if (shipping) {
                 if (typeof shipping != "object") {
                     return res.status(400).send({ status: false, message: "shipping should be an object" });
@@ -324,8 +326,13 @@ exports.updateUser = async (req, res) => {
                 if (!validate.isValidPincode(shipping.pincode)) {
                     return res.status(400).send({ status: false, message: "please enter valid pincode" });
                 }
+<<<<<<< HEAD
             } else {
                 return res.status(400).send({status: false, message: "Shipping address is required"})
+=======
+            }else{
+                return res.status(400).send({ status: false, message: "please enter shipping address" });
+>>>>>>> 29d20fb9536abb9bece9f0a85e72b89aedaa51f8
             }
 
             if (billing) {
@@ -351,8 +358,13 @@ exports.updateUser = async (req, res) => {
                 if (!validate.isValidPincode(billing.pincode)) {
                     return res.status(400).send({ status: false, message: "please enter valid billing pincode" });
                 }
+<<<<<<< HEAD
             }else {
                 return res.status(400).send({status: false, message: "Billing address is required"})
+=======
+            }else{
+                return res.status(400).send({ status: false, message: "please enter billing address" });
+>>>>>>> 29d20fb9536abb9bece9f0a85e72b89aedaa51f8
             }
         }
 
